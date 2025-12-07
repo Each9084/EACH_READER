@@ -2,6 +2,8 @@
 //创建Book类
 //原则：封装数据和行为。
 
+import 'dart:ffi';
+
 class Book {
   final String id;
   final String title;
@@ -29,26 +31,40 @@ class Book {
       lastReadAt = DateTime.now();
       //toStringAsFixed(x) x是保留的位数例如(3.1415926).toStringAsFixed(2) 就是3.14
       print(
-        "Book: $title progress updated to ${(newProgress * 100).toStringAsFixed(0)}%",
+        "Book: $title progress updated to ${(newProgress * 100).toStringAsFixed(
+            0)}%",
         //未来:在这里调用 CloudService 或 LocalStorageService 来保存数据
       );
     }
   }
 
   //将 Book 对象转换为 JSON Map，方便存储到本地或云端
-  Map<String,dynamic> toJson(){
-    return{
-      "id":id,
-      "title":title,
-      "author":author,
-      "filePath":filePath,
-      "readProgress":readProgress,
-      "lastReadAt":lastReadAt?.toIso8601String(),// 转换为标准时间字符串
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "title": title,
+      "author": author,
+      "filePath": filePath,
+      "readProgress": readProgress,
+      "lastReadAt": lastReadAt?.toIso8601String(), // 转换为标准时间字符串
     };
-}
+  }
 
 // 3. 从 JSON Map 创建一个 Book 对象 (工厂构造函数 Factory Constructor)
+  //命名构造函数
+  factory Book.fromJson(Map<String, dynamic> json){
+    return Book(
+      //因为是dynamic 所以 Dart不知道是什么值,所以我们想严格的话要指定
+      id: json["id"] as String,
+      title: json["title"] as String,
+      author: json["author"],
+      filePath: json["filePath"] as String,
+      readProgress: json["readProgress"] as double? ?? 0.0,
+      // 处理可能为空或不存在的进度
+      lastReadAt: json["lastReadAt"] != null ? DateTime.tryParse(
+          json["lastReadAt"] as String) : null,
 
+    );
+  }
 
-
-}//最外侧
+} //最外侧
