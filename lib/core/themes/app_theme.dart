@@ -10,19 +10,35 @@ enum ThemeType{
 }
 
 class AppTheme{
+  static const Color _primaryColor = Color(0xFF1E88E5); // 现代感的蓝色
+  static const Color _lightGrey = Color(0xFFF5F5F5);
+
   static ThemeData getThemeData(ThemeType type){
     switch(type){
       case ThemeType.light:
         return ThemeData.light().copyWith(
+          primaryColor: _primaryColor,
+          colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: Colors.teal, // 使用中性色调
+            accentColor: _primaryColor, // 辅助色使用主色
+          ),
           scaffoldBackgroundColor: Colors.white,
           appBarTheme: const AppBarTheme(
-            backgroundColor: Color(0xFFF5F5F7),// 接近 Apple 的浅灰
+            backgroundColor: _lightGrey, // 接近 Apple 的浅灰
+            foregroundColor: Colors.black87,
+            elevation: 0, // 移除阴影，追求极简
           ),
           // ... 其他白天配置
         );
 
       case ThemeType.dark:
         return ThemeData.dark().copyWith(
+          primaryColor: _primaryColor,
+          colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: Colors.blueGrey,
+            brightness: Brightness.dark,
+            accentColor: _primaryColor,
+          ),
           scaffoldBackgroundColor: Colors.black,
           appBarTheme: const AppBarTheme(
             backgroundColor: Color(0xFF1C1C1E), // 接近 Apple 的深灰
