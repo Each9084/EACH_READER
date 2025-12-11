@@ -1,5 +1,12 @@
 {
-  "appName": "奕炽阅读器",
+  "appName": "Each Reader",
   "login": "登录",
-  "settings": "设置"
+  "addBook": "添加书籍",
+  "categories": "分类",
+  "allCategories": "全部分类",
+  "settings": "设置",
+  "about": "关于",
+  "searchHint": "搜索书籍...",
+  "emptyShelf": "书架空空如也，请导入书籍。",
+  "lastRead": "上次"
 }

@@ -1,5 +1,11 @@
 {
-  "appName": "EACH Reader",
-  "login": "Login",
-  "settings": "Settings"
+  "appName": "Each Reader",
+  "login": "Sign In",
+  "addBook": "Add Book",
+  "allCategories": "All Categories",
+  "settings": "Settings",
+  "about": "About",
+  "searchHint": "Search books...",
+  "emptyShelf": "Your shelf is empty. Please import a book.",
+  "lastRead": "Last Read"
 }
