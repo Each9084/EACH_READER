@@ -8,5 +8,11 @@
   "about": "关于",
   "searchHint": "搜索书籍...",
   "emptyShelf": "书架空空如也，请导入书籍。",
-  "lastRead": "上次"
+  "lastRead": "上次",
+
+  "serverNotice": "注意：服务器之间相互独立，账号与数据不互通",
+  "intlServer": "国际版",
+  "cnServer": "大陆版",
+  "intlDesc": "Global Data",
+  "cnDesc": "China Only"
 }

@@ -7,5 +7,12 @@
   "about": "About",
   "searchHint": "Search books...",
   "emptyShelf": "Your shelf is empty. Please import a book.",
-  "lastRead": "Last Read"
+  "lastRead": "Last Read",
+
+
+  "serverNotice": "Notice: Servers are independent. Accounts and data are not shared.",
+  "intlServer": "International",
+  "cnServer": "Mainland",
+  "intlDesc": "Global Data",
+  "cnDesc": "China Only"
 }
